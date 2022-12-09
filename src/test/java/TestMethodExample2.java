@@ -1,3 +1,4 @@
+import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -60,13 +61,13 @@ public class TestMethodExample2 {
     void test4() {
         String whiteSpace = "   ";
         String number = "12323";
-        String numberWhiteSpace = " 22 ";
+        String numberWhiteSpace = "22\r\n";
 
         // 숫자만 들어있는 문자열인지 검증
         assertThat(number).containsOnlyDigits();
         // 문자열이 전부 공백인지 검증
         assertThat(whiteSpace).containsOnlyWhitespaces();
-        // 문자열에 공백이 있는지 검증
+        // 문자열에 공백이 있는지 검증 \t, \r\n 도 성공
         assertThat(numberWhiteSpace).containsWhitespaces();
         // 1 로 시작하는지 검증
         assertThat(number).startsWith("1");
